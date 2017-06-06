@@ -26,5 +26,8 @@ if(isset($_POST['pseudo'])
     fwrite($new_file, $crypt);
     //on ferme le fichier
     fclose($new_file);
+    echo '<p>Vous avez bien été inscrit.e</p>';
 }
 ?>
+
+<a href="index.php">Retour</a>

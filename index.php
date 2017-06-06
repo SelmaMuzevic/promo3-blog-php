@@ -7,6 +7,8 @@
     <title>Mon super blog</title>
 </head>
 <body>
+
+    <?php require_once('header.php'); ?>
     <h1>Mon super blog !</h1>
     <a href="create.html">Ajouter</a>
     <?php
@@ -27,11 +29,6 @@
                 .$file.'">Modifier</a>';
     }
 
-    $variable = 'blou';
-    echo '<br/>';
-    echo md5($variable);
-    echo '<br/>';
-    echo md5($variable);
     ?>
 </body>
 </html>

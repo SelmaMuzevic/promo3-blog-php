@@ -26,6 +26,10 @@ if(isset($_POST['pseudo'])
     fwrite($new_file, $crypt);
     //on ferme le fichier
     fclose($new_file);
+    //On lance la session à l'inscription et on y
+    //stock le nom d'utilisateur
+    session_start();
+    $_SESSION['utilisateur'] = $pseudo;
     echo '<p>Vous avez bien été inscrit.e</p>';
 }
 ?>

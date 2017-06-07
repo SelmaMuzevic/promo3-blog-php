@@ -28,3 +28,6 @@
             echo 'l\'utilisateur ou le mdp n\'existe pas';
         }
     }
+
+?>
+<a href="index.php">Retour</a>

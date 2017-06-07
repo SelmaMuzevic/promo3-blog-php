@@ -13,8 +13,29 @@ a bien les informations du formulaire
         }
         //On stock les informations du formulaire
         //dans des variables
-        $titre = $_POST['titre'];
-        $contenu = $_POST['contenu'];
+
+        /*
+        NE JAMAIS FAIRE CONFIANCE AUX DONNEES UTILISATEUR
+        Toute information contenu dans un $_POST, dans
+        un $_GET, dans un $_COOKIE est potentiellement
+        néfaste pour notre application.
+        Il est donc absolument essentiel d'échapper ces
+        valeurs avant de les utiliser.
+        Plusieurs fonctions existent pour cela. Elles
+        ne font pas exactement la même chose mais
+        dans les grandes lignes, utiliser l'une ou l'autre.
+        */
+
+        // $_GET = filter_input_array(INPUT_GET, 
+        // FILTER_SANITIZE_STRING);
+        // $_POST = filter_input_array(INPUT_POST, 
+        // FILTER_SANITIZE_STRING);
+        // $titre = filter_input(INPUT_POST, 
+        // 'titre', FILTER_SANITIZE_URL);
+        // $contenu = filter_input(INPUT_POST, 
+        // 'contenu', FILTER_SANITIZE_SPECIAL_CHARS);
+        $titre = htmlspecialchars($_POST['titre']);
+        $contenu = htmlspecialchars($_POST['contenu']);
         //On vérifie si le dossier posts existe
         if(!is_dir('posts')) {
             //si non, on le crée

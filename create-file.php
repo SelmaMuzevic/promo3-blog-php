@@ -25,15 +25,24 @@ a bien les informations du formulaire
         ne font pas exactement la même chose mais
         dans les grandes lignes, utiliser l'une ou l'autre.
         */
-
+        //Utiliser cette méthode pour filtrer l'intégralité
+        //du GET et/ou du POST, on ne redéfinira les variable
+        //$_POST et $_GET que si on les utilise partout dans
+        //notre code non echappées, sinon on préférera les 
+        //mettre dans une variable distincte
         // $_GET = filter_input_array(INPUT_GET, 
         // FILTER_SANITIZE_STRING);
         // $_POST = filter_input_array(INPUT_POST, 
         // FILTER_SANITIZE_STRING);
+        //Utiliser cette méthode comme on utiliserait le
+        //htmlspecialchars, pour une variable spécifique,
+        //elle permet de choisir l'échappement à appliquer
         // $titre = filter_input(INPUT_POST, 
         // 'titre', FILTER_SANITIZE_URL);
         // $contenu = filter_input(INPUT_POST, 
         // 'contenu', FILTER_SANITIZE_SPECIAL_CHARS);
+        //Utiliser cette méthode quand on sait pas quoi
+        //utiliser.
         $titre = htmlspecialchars($_POST['titre']);
         $contenu = htmlspecialchars($_POST['contenu']);
         //On vérifie si le dossier posts existe
